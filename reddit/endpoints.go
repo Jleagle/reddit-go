@@ -3,7 +3,6 @@ package reddit
 import (
 	"strings"
 	"net/url"
-	"fmt"
 	"strconv"
 )
 
@@ -11,7 +10,7 @@ func (r Reddit) GetListing(options ListingOptions) (posts *ListingResponse, err 
 
 	err = options.Validate()
 	if err != nil {
-		fmt.Println(err.Error())
+		return posts, err
 	}
 
 	q := url.Values{}

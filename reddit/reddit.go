@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
@@ -212,8 +211,6 @@ func (r Reddit) fetch(req *http.Request, i interface{}) (err error) {
 	if err != nil {
 		return err
 	}
-
-	fmt.Println(string(bytes))
 
 	err = json.Unmarshal(bytes, i)
 	if err != nil {
