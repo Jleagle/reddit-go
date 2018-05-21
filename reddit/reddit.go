@@ -88,7 +88,7 @@ func (r *Reddit) Throttle(duration time.Duration) {
 	}
 }
 
-func (r Reddit) Login(scopes []AuthScope, compact bool, state string) (string, string) {
+func (r Reddit) Login(scopes []AuthScope, mobile bool, state string) (string, string) {
 
 	// Set scopes
 	r.oauthConfig.Scopes = []string{}
@@ -97,7 +97,7 @@ func (r Reddit) Login(scopes []AuthScope, compact bool, state string) (string, s
 	}
 
 	// Set auth URL
-	if compact {
+	if mobile {
 		r.oauthConfig.Endpoint.AuthURL = authCompactURL
 	}
 
